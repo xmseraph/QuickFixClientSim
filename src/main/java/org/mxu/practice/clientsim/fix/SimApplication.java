@@ -44,8 +44,7 @@ public class SimApplication implements Application {
 	}
 
 	public void toApp(Message arg0, SessionID arg1) throws DoNotSend {
-		// TODO Auto-generated method stub
-
+		log.info("to app "+arg0+" sessionid="+arg1);
 	}
 
 }
