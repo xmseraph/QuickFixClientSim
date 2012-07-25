@@ -15,36 +15,42 @@ import quickfix.UnsupportedMessageType;
 
 public class SimApplication implements Application {
 
+	private String name;
+	public SimApplication(String name) {
+		super();
+		this.name = name;
+	}
+
 	private final Logger log = Logger.getLogger(SimApplication.class);
 	
 	public void fromAdmin(Message arg0, SessionID arg1) throws FieldNotFound,
 			IncorrectDataFormat, IncorrectTagValue, RejectLogon {
-		log.info("from admin "+arg0.toString()+" sessionid="+arg1);
+		log.info(name+":from admin "+arg0.toString()+" sessionid="+arg1);
 	}
 
 	public void fromApp(Message arg0, SessionID arg1) throws FieldNotFound,
 			IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
-		log.info("from app "+arg0+" sessionid="+arg1);
+		log.info(name+":from app "+arg0+" sessionid="+arg1);
 	}
 
 	public void onCreate(SessionID arg0) {
-		log.info("on create sessionid="+arg0);
+		log.info(name+":on create sessionid="+arg0);
 	}
 
 	public void onLogon(SessionID arg0) {
-		log.info("on logon sessionid="+arg0);
+		log.info(name+":on logon sessionid="+arg0);
 	}
 
 	public void onLogout(SessionID arg0) {
-		log.info("on logout sessionid="+arg0);
+		log.info(name+":on logout sessionid="+arg0);
 	}
 
 	public void toAdmin(Message arg0, SessionID arg1) {
-		log.info("to admin "+arg0+" sessionid="+arg1);
+		log.info(name+":to admin "+arg0+" sessionid="+arg1);
 	}
 
 	public void toApp(Message arg0, SessionID arg1) throws DoNotSend {
-		log.info("to app "+arg0+" sessionid="+arg1);
+		log.info(name+":to app "+arg0+" sessionid="+arg1);
 	}
 
 }

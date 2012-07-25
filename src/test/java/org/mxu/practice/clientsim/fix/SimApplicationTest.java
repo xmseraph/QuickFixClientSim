@@ -30,7 +30,7 @@ public class SimApplicationTest extends TestCase {
 	
 	@Test
 	public void testStartSimApplicationAsAcceptor() throws FileNotFoundException, ConfigError{
-	    Application application = new SimApplication();
+	    Application application = new SimApplication("test");
 
 	    SessionSettings settings = new SessionSettings(this.getClass().getClassLoader().getResourceAsStream(configAcceptorFileName));
 	    MessageStoreFactory storeFactory = new FileStoreFactory(settings);
@@ -44,7 +44,7 @@ public class SimApplicationTest extends TestCase {
 	
 	@Test
 	public void testStartSimApplicationAsInitiator() throws FileNotFoundException, ConfigError{
-	    Application application = new SimApplication();
+	    Application application = new SimApplication("test");
 
 	    SessionSettings settings = new SessionSettings(this.getClass().getClassLoader().getResourceAsStream(configInitiatorFileName));
 	    MessageStoreFactory storeFactory = new FileStoreFactory(settings);
