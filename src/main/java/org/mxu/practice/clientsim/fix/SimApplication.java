@@ -1,7 +1,7 @@
 package org.mxu.practice.clientsim.fix;
 
-
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import quickfix.Application;
 import quickfix.DoNotSend;
@@ -12,8 +12,9 @@ import quickfix.Message;
 import quickfix.RejectLogon;
 import quickfix.SessionID;
 import quickfix.UnsupportedMessageType;
+import quickfix.fix41.MessageCracker;
 
-public class SimApplication implements Application {
+public class SimApplication extends MessageCracker implements Application {
 
 	private String name;
 	public SimApplication(String name) {
@@ -21,7 +22,7 @@ public class SimApplication implements Application {
 		this.name = name;
 	}
 
-	private final Logger log = Logger.getLogger(SimApplication.class);
+	private final Logger log = LoggerFactory.getLogger(SimApplication.class);
 	
 	public void fromAdmin(Message arg0, SessionID arg1) throws FieldNotFound,
 			IncorrectDataFormat, IncorrectTagValue, RejectLogon {
